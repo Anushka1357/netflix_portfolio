@@ -10,12 +10,6 @@ export interface ProfileBanner {
   profileSummary: string;
 }
 
-export interface WorkPermit {
-  visaStatus: string;
-  expiryDate: Date;
-  summary: string;
-  additionalInfo: string;
-}
 
 // types.ts
 export interface TimelineItem {
