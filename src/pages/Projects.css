@@ -87,3 +87,15 @@
   margin-right: 5px;
   font-size: 1.2rem;
 }
+
+/* Missing animation - this is what was causing the issue */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
