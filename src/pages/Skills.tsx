@@ -1,29 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import './Skills.css';
 import { getSkills } from '../queries/getSkills';
+import { Skill } from "../types";
 
-import { FaReact, FaNodeJs, FaAws, FaDocker, FaGitAlt, FaJava } from 'react-icons/fa';
-import { SiRubyonrails, SiTypescript, SiPostgresql, SiMysql, SiKubernetes, SiGooglecloud, SiSpringboot, SiPhp, SiNetlify, SiHeroku, SiHtml5, SiCss3, SiRabbitmq, SiImessage } from 'react-icons/si';
-import { Skill } from '../types';
+import { FaPython, FaAws,  FaReact } from "react-icons/fa";
+import { SiCplusplus, SiJavascript, SiNumpy, SiPowerbi, SiBootstrap, SiFastapi, SiFlask, SiMicrosoftazure, SiScikitlearn, SiTensorflow, SiKeras, SiOpenai, SiHtml5, SiCss3,SiPostgresql, SiMysql, SiKubernetes} from "react-icons/si";
 
 const iconMap: { [key: string]: JSX.Element } = {
-  SiRubyonrails: <SiRubyonrails />,
-  FaNodeJs: <FaNodeJs />,
-  SiSpringboot: <SiSpringboot />,
-  FaJava: <FaJava />,
-  SiPhp: <SiPhp />,
-  FaReact: <FaReact />,
-  SiTypescript: <SiTypescript />,
+  FaPython: <FaPython />,
+  SiCplusplus: <SiCplusplus />,
+  SiJavascript: <SiJavascript />,
+  SiNumpy: <SiNumpy />,
+  SiPowerbi: <SiPowerbi />,
+  SiBootstrap: <SiBootstrap />,
+  SiFastapi: <SiFastapi />,
+  SiFlask: <SiFlask />,
   FaAws: <FaAws />,
-  FaDocker: <FaDocker />,
+  SiMicrosoftazure: <SiMicrosoftazure />,
+  SiScikitlearn: <SiScikitlearn />,
+  SiTensorflow: <SiTensorflow />,
+  SiKeras: <SiKeras />,
+  SiOpenai: <SiOpenai />,
+  SiHtml5: <SiHtml5 />,
+  SiCss3: <SiCss3 />,
   SiPostgresql: <SiPostgresql />,
   SiMysql: <SiMysql />,
-  SiKubernetes: <SiKubernetes />,
-  SiGooglecloud: <SiGooglecloud />,
-  SiHeroku: <SiHeroku />,
-  SiNetlify: <SiNetlify />,
-  SiRabbitmq: <SiRabbitmq />,
-  SiImessage: <SiImessage />,
+  SiKubernetes: <SiKubernetes />
 };
 
 

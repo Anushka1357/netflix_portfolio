@@ -1,26 +1,86 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Recommendations.css';
-import chrisProfilePic from '../images/chris.jpg'; // Adjust the path based on your directory structure
+import schoolPic from '../images/school.jpg';
+import nocsiPic from '../images/nicsi.jpg';
+import wdPic from '../images/wd.jpg';
+
+interface Recommendation {
+  name: string;
+  position: string;
+  date: string;
+  profilePic: string;
+  text: string[];
+}
+
+const recommendations: Recommendation[] = [
+  {
+    name: "Ms. Caren Tze Ping Kee",
+    position: "Data Science Intern - Western Digital",
+    date: "June 2025",
+    profilePic: wdPic,
+    text: [
+      "📊 'Chetanya is a model team-player, she is collaborative, respectful and always open to feedback'",
+      "⚡ 'Chetanya's dedication, positive attitude, curiosity and professionalism sets her apart as exceptional intern and promising data scientist.'"
+    ]
+  },
+  {
+    name: "Mr. S.K. Joshi",
+    position: "Web Developer Intern - NICSI",
+    date: "Jan 2023",
+    profilePic: nocsiPic,
+    text: [
+      "💼 'During the NICSI internship, Chetanya contributed significantly to multiple modules of the ePanchayat Project, delivering high-quality code for front-end and back-end solutions.'",
+      "🚀 'Her ability to adapt quickly, collaborate across teams, and innovate in web development was outstanding.'"
+    ]
+  },
+  {
+    name: "Mrs. Anjali Kaushik",
+    position: "School Teacher",
+    date: "June 2021",
+    profilePic: schoolPic,
+    text: [
+      "✨ 'Chetanya has always been a dedicated and inquisitive student. Her enthusiasm for learning and proactive approach to problem-solving were evident in every project and assignment.'",
+      "🌟 'I am confident that Chetanya will excel in any endeavor she choose and bring value to every team or organization.'"
+    ]
+  }
+];
 
 const Recommendations: React.FC = () => {
+  const [expandedImg, setExpandedImg] = useState<string | null>(null);
+
   return (
-    <div className='timeline-container'>
-      <div className="recommendation-card">
-        <div className="recommendation-header">
-          <img src={chrisProfilePic} alt="Chris Smith" className="profile-pic" />
-          <div>
-            <h3>Chris Smith</h3>
-            <p>Head of Kajima Community</p>
-            <p className="date">October 24, 2024</p>
+    <div className='recommendations-container'>
+      <h2 className="recommendations-title"> Recommendations</h2>
+      <div className="recommendations-grid">
+        {recommendations.map((rec, index) => (
+          <div 
+            key={index} 
+            className="recommendation-card"
+            onClick={() => setExpandedImg(rec.profilePic)} // expand image when card clicked
+          >
+            <div className="recommendation-header">
+              <img src={rec.profilePic} alt={rec.name} className="profile-pic" />
+              <div>
+                <h3>{rec.name}</h3>
+                <p>{rec.position}</p>
+                <p className="date">{rec.date}</p>
+              </div>
+            </div>
+            <div className="recommendation-body">
+              {rec.text.map((paragraph, i) => (
+                <p key={i}>{paragraph}</p>
+              ))}
+            </div>
           </div>
-        </div>
-        <div className="recommendation-body">
-          <p>✨ "It is with great pleasure that I write this reference for Sumanth, who worked for us as a software developer at Kajima from June 2023. Unfortunately, due to a change in the company’s structure, we have made the difficult decision to make their position redundant. This in no way reflects on their performance, which was consistently excellent.</p>
-          <p>During their time with us, Sumanth demonstrated strong technical expertise, a passion for problem-solving, a willingness to learn, and a collaborative spirit that greatly contributed to our team’s success. They played a pivotal role in developing and maintaining key features of our software <strong>BookingsPlus</strong> and <strong>NHS Open Space</strong>, consistently delivering high-quality code while meeting project deadlines. Their ability to quickly adapt to new technologies and their proactive approach to finding innovative solutions set them apart."</p>
-          <p>💼 "Sumanth also showed exceptional teamwork and communication skills, effectively collaborating with cross-functional teams, including product managers, designers, and QA. Their professionalism, positive attitude, and dedication to their work made them an asset to the team."</p>
-          <p>🌟 "I have no doubt that Sumanth will be a valuable addition to any organization, and I wholeheartedly recommend them for any future opportunities."</p>
-        </div>
+        ))}
       </div>
+
+      {/* Image Modal */}
+      {expandedImg && (
+        <div className="image-modal" onClick={() => setExpandedImg(null)}>
+          <img src={expandedImg} alt="Expanded" className="expanded-img" />
+        </div>
+      )}
     </div>
   );
 };

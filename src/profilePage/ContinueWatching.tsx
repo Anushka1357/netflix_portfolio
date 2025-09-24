@@ -1,6 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ContinueWatching.css';
+// Import your local images
+import HobbiesImg from '../images/Hobbies.jpeg';
+import BlogsImg from '../images/Blogs.jpeg';
+import CommunityEngagementImg from '../images/Recommendations.jpeg';
+import AchievementsImg from '../images/AboutMe.jpg';
+
 
 type ProfileType = 'recruiter' | 'developer' | 'stalker' | 'adventure';
 
@@ -10,30 +16,31 @@ interface ContinueWatchingProps {
 
 const continueWatchingConfig = {
   recruiter: [
-    { title: "Music", imgSrc: "https://picsum.photos/id/1025/300/200", link: "/music" },
-    { title: "Reading", imgSrc: "https://picsum.photos/id/1026/300/200", link: "/reading" },
-    { title: "Blogs", imgSrc: "https://picsum.photos/id/1027/300/200", link: "/blogs" },
-    { title: "Contact Me", imgSrc: "https://picsum.photos/id/1029/300/200", link: "/contact-me" }
+    { title: "Achievements & Interests ", imgSrc: HobbiesImg, link: "/hobbies" },
+    { title: "Research & Writing", imgSrc: BlogsImg, link: "/blogs" },
+    { title: "Recommendations", imgSrc: CommunityEngagementImg, link: "/Recommendations" },
+    { title: "About Me", imgSrc: AchievementsImg, link: "/contact-me" }
   ],
   developer: [
-    { title: "Music", imgSrc: "https://picsum.photos/id/1025/300/200", link: "/music" },
-    { title: "Reading", imgSrc: "https://picsum.photos/id/1026/300/200", link: "/reading" },
-    { title: "Blogs", imgSrc: "https://picsum.photos/id/1027/300/200", link: "/blogs" },
-    { title: "Certifications", imgSrc: "https://picsum.photos/id/1028/300/200", link: "/certifications" },
-    { title: "Contact Me", imgSrc: "https://picsum.photos/id/1029/300/200", link: "/contact-me" }
+    { title: "Achievements & Interests ", imgSrc: HobbiesImg, link: "/hobbies" },
+    { title: "Research & Writing", imgSrc: BlogsImg, link: "/blogs" },
+    { title: "Recommendations", imgSrc: CommunityEngagementImg, link: "/community" },
+    { title: "About Me", imgSrc: AchievementsImg, link: "/contact-me" }
   ],
   stalker: [
-    { title: "Reading", imgSrc: "https://picsum.photos/id/1026/300/200", link: "/reading" },
-    { title: "Blogs", imgSrc: "https://picsum.photos/id/1027/300/200", link: "/blogs" },
-    { title: "Contact Me", imgSrc: "https://picsum.photos/id/1029/300/200", link: "/contact-me" }
+    { title: "Achievements & Interests ", imgSrc: HobbiesImg, link: "/hobbies" },
+    { title: "Research & Writing", imgSrc: BlogsImg, link: "/blogs" },
+    { title: "Recommendations", imgSrc: CommunityEngagementImg, link: "/community" },
+    { title: "About Me", imgSrc: AchievementsImg, link: "/contact-me" }
   ],
   adventure: [
-    { title: "Music", imgSrc: "https://picsum.photos/id/1025/300/200", link: "/music" },
-    { title: "Reading", imgSrc: "https://picsum.photos/id/1026/300/200", link: "/reading" },
-    { title: "Certifications", imgSrc: "https://picsum.photos/id/1028/300/200", link: "/certifications" },
-    { title: "Contact Me", imgSrc: "https://picsum.photos/id/1029/300/200", link: "/contact-me" }
+    { title: "Achievements & Interests ", imgSrc: HobbiesImg, link: "/hobbies" },
+    { title: "Research & Writing", imgSrc: BlogsImg, link: "/blogs" },
+    { title: "Recommendations", imgSrc: CommunityEngagementImg, link: "/community" },
+    { title: "About Me", imgSrc: AchievementsImg, link: "/contact-me" }
   ]
 };
+
 
 const ContinueWatching: React.FC<ContinueWatchingProps> = ({ profile }) => {
   const continueWatching = continueWatchingConfig[profile];

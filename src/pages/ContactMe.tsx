@@ -1,65 +1,51 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './ContactMe.css';
-import profilePic from '../images/sumanth.jpeg';
-import { FaEnvelope, FaPhoneAlt, FaCoffee, FaLinkedin } from 'react-icons/fa';
-import { ContactMe as IContactMe } from '../types';
-import { getContactMe } from '../queries/getContactMe';
+import maybePic from '../images/Chetu.jpeg';
+import { FaEnvelope, FaPhoneAlt, FaBirthdayCake, FaGlobe } from 'react-icons/fa';
 
 const ContactMe: React.FC = () => {
-
-  const [userData, setUserData] = useState<IContactMe>()
-
-  useEffect(() => {
-    async function fetchUserData() {
-      const data = await getContactMe();
-      setUserData(data);
-    }
-
-    fetchUserData();
-  }, []);
-
-  if (!userData) return <div>Loading...</div>;
-
   return (
     <div className="contact-container">
-      <div className="linkedin-badge-custom">
-        <img src={profilePic} alt="Sumanth Samala" className="badge-avatar" />
-        <div className="badge-content">
-          <h3 className="badge-name">{userData?.name}</h3>
-          <p className="badge-title">{userData.title}</p>
-          <p className="badge-description">
-            {userData.summary}
+      {/* maybe Card in Center */}
+      <a
+        href="https://www.linkedin.com/in/chetanya-gupta-996413233/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="maybe-card"
+      >
+        {/* Left Side - Image */}
+        <div className="maybe-left">
+          <img src={maybePic} alt="Chetanya Gupta" className="maybe-photo" />
+        </div>
+
+        {/* Right Side - Info */}
+        <div className="maybe-right">
+          <h2 className="maybe-name">Chetanya Gupta</h2>
+          <p className="maybe-title">Data Science Intern | Aspiring AI Engineer</p>
+          <p className="maybe-summary">
+            Passionate about machine learning, generative AI, and building data-driven solutions.
           </p>
-          <p className="badge-company">{userData.companyUniversity}</p>
-          <a
-            href={userData.linkedinLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="badge-link"
-          >
-            <FaLinkedin className="linkedin-icon" /> View Profile
-          </a>
+          <button className="linkedin-btn">View LinkedIn maybe</button>
         </div>
-      </div>
-      <div className="contact-header">
-        <p>I'm always up for a chat or a coffee! Feel free to reach out.</p>
-      </div>
-      <div className="contact-details">
-        <div className="contact-item">
-          <FaEnvelope className="contact-icon" />
-          <a href={`mailto:${userData.email}`} className="contact-link">
-            {userData.email}
-          </a>
+      </a>
+
+      {/* Second Row: Details */}
+      <div className="details-grid">
+        <div className="detail-card">
+          <FaEnvelope className="detail-icon" />
+          <span>chetanya2003@gmail.com</span>
         </div>
-        <div className="contact-item">
-          <FaPhoneAlt className="contact-icon" />
-          <a href={`tel:${userData.phoneNumber}`} className="contact-link">
-            {userData.phoneNumber}
-          </a>
+        <div className="detail-card">
+          <FaPhoneAlt className="detail-icon" />
+          <span>+91 8700897723</span>
         </div>
-        <div className="contact-fun">
-          <p>Or catch up over a coffee ☕</p>
-          <FaCoffee className="coffee-icon" />
+        <div className="detail-card">
+          <FaBirthdayCake className="detail-icon" />
+          <span>7th March 2003</span>
+        </div>
+        <div className="detail-card">
+          <FaGlobe className="detail-icon" />
+          <span>English, Hindi</span>
         </div>
       </div>
     </div>

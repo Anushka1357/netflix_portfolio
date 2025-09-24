@@ -15,9 +15,12 @@ const GET_CONTACT_ME = `
       linkedinLink
       email
       phoneNumber
+      languages
+      dob
     }
   }
 `;
+
 
 export async function getContactMe(): Promise<ContactMe> {
   const data = await datoCMSClient.request<{ contactMe: ContactMe }>(GET_CONTACT_ME);

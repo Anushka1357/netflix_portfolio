@@ -2,152 +2,318 @@
   padding: 100px 20px;
   background-color: #141414;
   color: #e6e6e6;
-  text-align: center;
-  animation: fadeIn 0.8s ease-in-out;
-}
-
-.linkedin-badge-custom {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #222;
-  border-radius: 8px;
-  padding: 15px 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  color: #e6e6e6;
-  max-width: 350px;
-  margin: 0 auto;
-}
-
-.badge-avatar {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  margin-right: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.badge-content {
-  text-align: left;
-}
-
-.badge-name {
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin: 0;
-  color: #fff;
-}
-
-.badge-title {
-  font-size: 0.9rem;
-  margin: 0;
-  color: #aaa;
-}
-
-.badge-description {
-  font-size: 0.85rem;
-  margin: 5px 0;
-  color: #ccc;
-}
-
-.badge-company {
-  font-size: 0.85rem;
-  color: #888;
-}
-
-.badge-link {
-  display: inline-flex;
-  align-items: center;
-  background-color: #0077b5;
-  color: #fff;
-  padding: 8px 12px;
-  border-radius: 5px;
-  font-weight: bold;
-  text-decoration: none;
-  margin-top: 10px;
-  transition: background-color 0.3s ease;
-}
-
-.badge-link:hover {
-  background-color: #005983;
-}
-
-.linkedin-icon {
-  margin-right: 5px;
-}
-
-.contact-header p {
-  font-size: 1.2rem;
-  color: #ccc;
-  margin: 20px 0 30px;
-}
-
-.contact-details {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  justify-content: center;
+  min-height: 100vh;
+  animation: fadeIn 0.8s ease-in-out;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.contact-item {
+/* Main maybe Card - Split into Two Equal Halves */
+.maybe-card {
+  display: flex;
+  width: 100%;
+  max-width: 900px;
+  height: 300px;
+  background: #222;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  transition: all 0.4s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.maybe-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  background: #2a2a2a;
+}
+
+/* Left Half - Full Image */
+.maybe-left {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: right;
+  justify-content: center;
+  background: #1a1a1a; /* Background color to fill any gaps */
+}
+
+.maybe-photo {
+  width: 60%;  /* Keep your original width for proper aspect ratio */
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.maybe-card:hover .maybe-photo {
+  transform: scale(1.08);
+}
+
+/* Right Half - Details */
+.maybe-right {
+  flex: 1;
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  background: linear-gradient(135deg, #222 0%, #2a2a2a 100%);
+}
+
+.maybe-name {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+  color: #fff;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.maybe-title {
+  font-size: 1.2rem;
+  color: #0077b5;
+  margin: 0 0 20px 0;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.maybe-summary {
+  font-size: 1rem;
+  color: #ccc;
+  line-height: 1.6;
+  margin: 0 0 30px 0;
+  opacity: 0.9;
+}
+
+.linkedin-btn {
+  background: linear-gradient(135deg, #0077b5 0%, #005983 100%);
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 119, 181, 0.3);
+  align-self: flex-start;
+  letter-spacing: 0.5px;
+}
+
+.linkedin-btn:hover {
+  background: linear-gradient(135deg, #005983 0%, #003d5c 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 119, 181, 0.4);
+}
+
+/* Details Grid - Second Row */
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  width: 100%;
+  max-width: 900px;
+  margin-top: 20px;
+}
+
+.detail-card {
   display: flex;
   align-items: center;
-  gap: 10px;
-  background: #1e1e1e;
-  padding: 10px 20px;
-  border-radius: 25px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  gap: 20px;
+  background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
+  padding: 25px 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
   cursor: pointer;
+  border: 1px solid #333;
+  position: relative;
+  overflow: hidden;
 }
 
-.contact-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(214, 43, 43, 0.6);
+.detail-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(214, 43, 43, 0.1), transparent);
+  transition: left 0.5s ease;
 }
 
-.contact-icon {
-  font-size: 1.5rem;
+.detail-card:hover::before {
+  left: 100%;
+}
+
+.detail-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(214, 43, 43, 0.2);
+  border-color: #d62b2b;
+  background: linear-gradient(135deg, #2a2a2a 0%, #333 100%);
+}
+
+.detail-icon {
+  font-size: 2rem;
   color: #d62b2b;
+  min-width: 50px;
+  display: flex;
+  justify-content: center;
+  transition: transform 0.3s ease;
 }
 
-.contact-link {
+.detail-card:hover .detail-icon {
+  transform: scale(1.1) rotate(5deg);
+  color: #ff4757;
+}
+
+.detail-card span {
   color: #fff;
   font-size: 1.1rem;
-  text-decoration: none;
+  font-weight: 500;
+  flex: 1;
+  transition: color 0.3s ease;
 }
 
-.contact-link:hover {
-  text-decoration: underline;
+.detail-card:hover span {
+  color: #f1f2f6;
 }
 
-.contact-fun {
-  margin-top: 30px;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #e6e6e6;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 50px 15px;
+  }
+
+  .maybe-card {
+    flex-direction: column;
+    height: auto;
+    max-width: 400px;
+  }
+
+  .maybe-left {
+    height: 300px;
+  }
+
+  .maybe-right {
+    padding: 35px 25px;
+    text-align: center;
+  }
+
+  .maybe-name {
+    font-size: 1.8rem;
+  }
+
+  .maybe-title {
+    font-size: 1.1rem;
+  }
+
+  .maybe-summary {
+    font-size: 0.95rem;
+  }
+
+  .linkedin-btn {
+    align-self: center;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 40px;
+  }
+
+  .detail-card {
+    padding: 20px 25px;
+    gap: 15px;
+  }
+
+  .detail-icon {
+    font-size: 1.5rem;
+    min-width: 40px;
+  }
+
+  .detail-card span {
+    font-size: 1rem;
+  }
 }
 
-.coffee-icon {
-  font-size: 2rem;
-  color: #ff9900;
-  animation: swing 1s infinite ease-in-out;
+@media (max-width: 480px) {
+  .maybe-name {
+    font-size: 1.6rem;
+  }
+
+  .maybe-title {
+    font-size: 1rem;
+  }
+
+  .maybe-right {
+    padding: 30px 20px;
+  }
+
+  .detail-card {
+    padding: 18px 20px;
+    gap: 12px;
+  }
+
+  .detail-icon {
+    font-size: 1.4rem;
+    min-width: 35px;
+  }
+
+  .detail-card span {
+    font-size: 0.95rem;
+  }
 }
 
 /* Animations */
 @keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% { 
+    opacity: 0; 
+    transform: translateY(30px); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
 }
 
-@keyframes swing {
-  0%, 100% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(30deg);
-  }
+/* Staggered animation for detail cards */
+.detail-card:nth-child(1) {
+  animation: fadeIn 0.6s ease-out 0.2s both;
+}
+
+.detail-card:nth-child(2) {
+  animation: fadeIn 0.6s ease-out 0.3s both;
+}
+
+.detail-card:nth-child(3) {
+  animation: fadeIn 0.6s ease-out 0.4s both;
+}
+
+.detail-card:nth-child(4) {
+  animation: fadeIn 0.6s ease-out 0.5s both;
+}
+
+/* Add subtle glow effect on hover */
+.maybe-card:hover {
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Smooth transitions for all elements */
+* {
+  transition: all 0.3s ease;
 }

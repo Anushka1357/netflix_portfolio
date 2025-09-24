@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './Projects.css';
-import { FaReact, FaNodeJs, FaAws, FaDatabase, FaDocker, FaAngular, FaGithub, FaGitlab, FaGoogle, FaJava, FaJenkins, FaMicrosoft, FaPython, FaVuejs } from 'react-icons/fa';
-import { SiRubyonrails, SiPostgresql, SiMongodb, SiMaterialdesign, SiHtml5, SiCss3, SiJquery, SiAwsamplify, SiFirebase, SiTerraform, SiArgo } from 'react-icons/si';
+import { FaReact, FaNodeJs, FaAws, FaDatabase, FaDocker, FaGithub, FaGitlab, FaGoogle, FaJava, FaJenkins, FaMicrosoft, FaPython, } from 'react-icons/fa';
+import { SiRubyonrails, SiPostgresql, SiMongodb, SiMaterialdesign, SiHtml5, SiCss3, SiJquery, SiAwsamplify, SiFirebase, SiTerraform, SiArgo, SiFastapi, SiFlask, SiScikitlearn, SiTensorflow, SiKeras, SiPowerbi, SiPandas, SiNumpy } from 'react-icons/si';
+import { GrDeploy, GrKubernetes } from "react-icons/gr";
 import { Project } from '../types';
 import { getProjects } from '../queries/getProjects';
-import { GrDeploy, GrKubernetes } from "react-icons/gr";
 
 const techIcons: { [key: string]: JSX.Element } = {
   "ReactJS": <FaReact />,
@@ -38,40 +38,27 @@ const techIcons: { [key: string]: JSX.Element } = {
   'Java': <FaJava />,
   'Spring Boot': <FaJava />,
   'Python': <FaPython />,
-  'Node.js': <FaNodeJs />,
-  'Express.js': <FaNodeJs />,
-  'Hibernate': <FaJava />,
-  'Maven': <FaJava />,
-  'Gradle': <FaJava />,
-  'JUnit': <FaJava />,
-  'Mockito': <FaJava />,
-  'Jest': <FaReact />,
-  'React': <FaReact />,
-  'Angular': <FaAngular />,
-  'Vue.js': <FaVuejs />,
-  'Next.js': <FaReact />,
-  'Gatsby': <FaReact />,
-  'Nuxt.js': <FaVuejs />,
-  'Redux': <FaReact />,
-  'Vuex': <FaVuejs />,
-  'Tailwind CSS': <SiCss3 />,
-  'Bootstrap': <SiCss3 />,
-  'JQuery': <SiJquery />,
+  'FastAPI': <SiFastapi />,
+  'Flask': <SiFlask />,
+  'Scikit-learn': <SiScikitlearn />,
+  'TensorFlow': <SiTensorflow />,
+  'Keras': <SiKeras />,
+  'Power BI': <SiPowerbi />,
+  'Pandas': <SiPandas />,
+  'NumPy': <SiNumpy />,
 };
 
-
 const Projects: React.FC = () => {
-  const [projects, setProjects] = useState<Project[]>([])
-  
-  useEffect(() => { 
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  useEffect(() => {
     async function fetchProjects() {
       const data = await getProjects();
       setProjects(data);
     }
-    
-    fetchProjects()
-  }, [])
-  
+    fetchProjects();
+  }, []);
+
   if (projects.length === 0) return <div>Loading...</div>;
 
   return (
@@ -86,7 +73,7 @@ const Projects: React.FC = () => {
             <img src={project.image.url} alt={project.title} className="project-image" />
             <div className="project-details">
               <h3>{project.title}</h3>
-              <p>{project.description}</p>
+              <p style={{ whiteSpace: 'pre-line' }}>{project.description}</p>
               <div className="tech-used">
                 {project.techUsed.split(', ').map((tech, i) => (
                   <span key={i} className="tech-badge">

@@ -17,14 +17,16 @@ export interface WorkPermit {
   additionalInfo: string;
 }
 
+// types.ts
 export interface TimelineItem {
-  timelineType: 'work' | 'education';
-  name: string;
+  timelineType: "work" | "education";
   title: string;
-  techStack: string;
-  summaryPoints: string[];
+  name: string;
   dateRange: string;
+  techStack?: string;
+  summaryPoints: string;
 }
+
 
 export interface Project {
   title: string;
@@ -50,7 +52,10 @@ export interface ContactMe {
   linkedinLink: string;
   email: string;
   phoneNumber: string;
+  languages: string;
+  dob: string;
 }
+
 
 export interface Skill { 
   name: string;
