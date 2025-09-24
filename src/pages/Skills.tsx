@@ -6,7 +6,7 @@ import { Skill } from "../types";
 import { FaPython, FaAws,  FaReact } from "react-icons/fa";
 import { SiCplusplus, SiJavascript, SiNumpy, SiPowerbi, SiBootstrap, SiFastapi, SiFlask, SiMicrosoftazure, SiScikitlearn, SiTensorflow, SiKeras, SiOpenai, SiHtml5, SiCss3,SiPostgresql, SiMysql, SiKubernetes} from "react-icons/si";
 
-const iconMap: { [key: string]: JSX.Element } = {
+const iconMap: { [key: string]: React.JSX.Element } = {
   FaPython: <FaPython />,
   SiCplusplus: <SiCplusplus />,
   SiJavascript: <SiJavascript />,
