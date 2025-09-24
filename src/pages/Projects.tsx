@@ -6,7 +6,7 @@ import { GrDeploy, GrKubernetes } from "react-icons/gr";
 import { Project } from '../types';
 import { getProjects } from '../queries/getProjects';
 
-const techIcons: { [key: string]: JSX.Element } = {
+const techIcons: { [key: string]: React.JSX.Element } = {
   "ReactJS": <FaReact />,
   "NodeJS": <FaNodeJs />,
   "AWS": <FaAws />,
