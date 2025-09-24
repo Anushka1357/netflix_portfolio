@@ -4,7 +4,7 @@ import { FaExternalLinkAlt, FaUniversity } from 'react-icons/fa';
 import { SiCoursera, SiIeee, SiOracle } from 'react-icons/si';
 import { Certification } from '../types';
 import { getCertifications } from '../queries/getCertifications';
-const iconData: { [key: string]: JSX.Element } = {
+const iconData: { [key: string]: React.JSX.Element } = {
   'Oracle': <SiOracle />,
   'coursera': <SiCoursera />,
   'ieee': <SiIeee />,
