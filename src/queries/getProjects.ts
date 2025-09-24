@@ -6,7 +6,7 @@ export async function getProjects(): Promise<Project[]> {
       title: "Jobello: AI Job Portal",
       description: `Hello to new jobs! My AI job portal with GenAI parses resumes and performs RAG-based searches. Features recommendation system, dashboards, and analytics.`,
       techUsed: "Python, Streamlit, PostgreSQL, RAG, PyPDF, LangChain, FAISS, Data Visualization, Machine Learning",
-      image: { url: "/projects/jobello.png" }
+      image: { url: "/Projects/jobello.png" }
     },
     {
       title: "Gender Gap Analysis Report — Data Analytics",
